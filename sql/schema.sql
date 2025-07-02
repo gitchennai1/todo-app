@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS todo_app;
+
+USE todo_app;
+
+CREATE TABLE IF NOT EXISTS todos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    task VARCHAR(255) NOT NULL,
+    status TINYINT(1) NOT NULL DEFAULT 0,  -- 0 = pending, 1 = done
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
