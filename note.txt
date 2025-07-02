@@ -1,1 +1,1 @@
-.staging test ESSopl-vk
+.staging
