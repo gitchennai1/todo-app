@@ -3,3 +3,5 @@ Total 8 (delta 2), reused 1 (delta 0), pack-reused 0 (from 0)
 remote: Resolving deltas: 100% (2/2), completed with 1 local object.
 To https://github.com/gitchennai1/todo-app
    75e04e4..d2e4da8  staging -> staging
+
+Database script added in webhook script
