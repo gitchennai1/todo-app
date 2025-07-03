@@ -143,9 +143,7 @@ $todos = $stmt->fetchAll();
             <?php endforeach; ?>
         </ul>
         <div class="footer">
-            <p>Updated by Satheesh</p>
-            <p>Updated by Vicky</p>
-            <p>Footer Updated - Tamil Aruvi</p>
+            <p style="text-align: center;font-weight: bold">Updated By Developer - Siva</p>
         </div>
     </div>
 </body>
