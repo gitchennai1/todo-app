@@ -144,6 +144,7 @@ $todos = $stmt->fetchAll();
         </ul>
         <div class="footer">
             <p>Updated by Vicky</p>
+            <p>Footer Updated - Tamil Aruvi</p>
         </div>
     </div>
 </body>
