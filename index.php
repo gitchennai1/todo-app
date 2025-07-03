@@ -142,6 +142,9 @@ $todos = $stmt->fetchAll();
                 </li>
             <?php endforeach; ?>
         </ul>
+        <div class="footer">
+            <p>Updated by Vicky</p>
+        </div>
     </div>
 </body>
 </html>
