@@ -4,4 +4,10 @@ remote: Resolving deltas: 100% (2/2), completed with 1 local object.
 To https://github.com/gitchennai1/todo-app
    75e04e4..d2e4da8  staging -> staging
 
-Database script added in webhook script
+Database script added in webhook scripts removed
+
+SIva
+
+Time 01.34 AM
+
+mysqlf and ambu working

@@ -110,8 +110,8 @@ $todos = $stmt->fetchAll();
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>📝 Todo-List</h1>
+    <div class="container" style="background:rgb(110, 129, 150)">
+        <h1>📝 Todo-Lists</h1>
         <form method="POST" action="add.php">
             <input type="text" name="task" placeholder="Enter new task..." required />
             <button type="submit">Add</button>
@@ -143,8 +143,9 @@ $todos = $stmt->fetchAll();
             <?php endforeach; ?>
         </ul>
         <div class="footer">
-            <p>Developer - Vignesh</p>
+            <p style="text-align: center;font-weight: bold">Updated By Developer - Ambu's</p>
         </div>
     </div>
 </body>
 </html>
+git 
