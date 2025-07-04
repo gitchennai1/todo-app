@@ -145,6 +145,7 @@ $todos = $stmt->fetchAll();
         <div class="footer">
             <p style="text-align: center;font-weight: bold">Updated By Developer - Siva</p>
             <p style="text-align: center;font-weight: bold">Updated By Developer - Ambu</p>
+            <p style="text-align: center;font-weight: bold">Updated By Developer - vicky</p>
         </div>
     </div>
 </body>
