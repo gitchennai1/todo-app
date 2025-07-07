@@ -110,7 +110,7 @@ $todos = $stmt->fetchAll();
     </style>
 </head>
 <body>
-    <div class="container" style="background:rgb(110, 129, 150)">
+    <div class="container" style="background:rgb(255, 255, 255)">
         <h1>📝 Todo-Lists</h1>
         <form method="POST" action="add.php">
             <input type="text" name="task" placeholder="Enter new task..." required />
