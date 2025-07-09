@@ -1,11 +1,13 @@
 <?php
 require_once 'config/db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && !empty($_POST['task'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $task = $_POST['task'];
-    $stmt = $pdo->prepare("INSERT INTO todos (task) VALUES (?)");
-    $stmt->execute([$task]);
-}
+    $dueDate = $_POST['due_date'];
 
-header("Location: index.php");
-exit;
+    $stmt = $pdo->prepare("INSERT INTO todos (task, due_date) VALUES (?, ?)");
+    $stmt->execute([$task, $dueDate]);
+
+    header("Location: index.php");
+    exit;
+}
