@@ -174,7 +174,7 @@ $todos = $stmt->fetchAll();
             <p style="text-align: center; font-weight: bold;">Updated By Developer - Ambu</p>
             <p style="text-align: center; font-weight: bold;">Updated By Developer - Vicky</p>
             <p style="text-align: center; font-weight: bold;">Updated By Developer - Satheesh</p>
-            <p style="text-align: center; font-weight: bold;">Updated By Developer - Tamil Aruvi</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Tamil Aruvi.</p>
         </div>
     </div>
 </body>
