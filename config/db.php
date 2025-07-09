@@ -2,10 +2,10 @@
 
 $host = 'localhost';
 $dbname = 'todo_app';
-//$user = 'root';
-//$pass = '';
-$user = 'todo_app';
-$pass = 'W$0VPCXcj?t6kD"V';
+$user = 'root';
+$pass = '';
+// $user = 'todo_app';
+// $pass = 'W$0VPCXcj?t6kD"V';
 
 $config = require_once 'config/constant.php';
 
@@ -14,7 +14,6 @@ $dbname   = $config['DB_NAME'];
 $username = $config['DB_USERNAME'];
 $password = $config['DB_PASSWORD'];
 $charset  = $config['DB_CHARSET'];
->>>>>>> 0745d3fa73f0157ba9e15646aa0757083363787d
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=$charset", $username, $password);

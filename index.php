@@ -4,8 +4,9 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_id'])) {
     $editId = $_POST['edit_id'];
     $newTask = $_POST['edit_task'];
-    $update = $pdo->prepare("UPDATE todos SET task = ? WHERE id = ?");
-    $update->execute([$newTask, $editId]);
+    $newDueDate = $_POST['edit_due_date'];
+    $update = $pdo->prepare("UPDATE todos SET task = ?, due_date = ? WHERE id = ?");
+    $update->execute([$newTask, $newDueDate, $editId]);
     header("Location: index.php");
     exit;
 }
@@ -43,12 +44,18 @@ $todos = $stmt->fetchAll();
 
         form {
             display: flex;
+            flex-wrap: wrap;
             gap: 10px;
             margin-bottom: 25px;
+            flex-flow: row;
+        }
+        input[type="date"] {
+            flex: 1 1 20% !important;
         }
 
-        input[type="text"] {
-            flex: 1;
+        input[type="text"],
+        input[type="date"] {
+            flex: 1 1 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 6px;
@@ -107,30 +114,49 @@ $todos = $stmt->fetchAll();
         .actions a:hover {
             text-decoration: underline;
         }
+
+        .task-details {
+            flex: 1;
+        }
+
+        .due-date {
+            display: block;
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+        }
     </style>
 </head>
 <body>
-    <div class="container" style="background:rgb(255, 255, 255)">
+    <div class="container">
         <h1>📝 Todo-Lists</h1>
+
+        <!-- Add new task form -->
         <form method="POST" action="add.php">
             <input type="text" name="task" placeholder="Enter new task..." required />
+            <input type="date" name="due_date" required />
             <button type="submit">Add</button>
         </form>
 
+        <!-- Task list -->
         <ul>
             <?php foreach ($todos as $todo): ?>
                 <li>
                     <?php if (isset($_GET['edit']) && $_GET['edit'] == $todo['id']): ?>
-                        <form method="POST" style="width: 100%;align-items: center;">
+                        <form method="POST" style="width: 100%;">
                             <input type="hidden" name="edit_id" value="<?= $todo['id'] ?>">
                             <input type="text" name="edit_task" value="<?= htmlspecialchars($todo['task']) ?>" required>
+                            <input type="date" name="edit_due_date" value="<?= $todo['due_date'] ?>" required>
                             <button type="submit">Update</button>
                             <a href="index.php">Cancel</a>
                         </form>
                     <?php else: ?>
-                        <span class="<?= $todo['status'] ? 'task-done' : '' ?>">
-                            <?= htmlspecialchars($todo['task']) ?>
-                        </span>
+                        <div class="task-details">
+                            <span class="<?= $todo['status'] ? 'task-done' : '' ?>">
+                                <?= htmlspecialchars($todo['task']) ?>
+                            </span>
+                            <span class="due-date">Due: <?= htmlspecialchars(date('d M Y', strtotime($todo['due_date']))) ?></span>
+                        </div>
                         <div class="actions">
                             <?php if (!$todo['status']): ?>
                                 <a class="mark" href="done.php?id=<?= $todo['id'] ?>">Mark as Done</a>
@@ -142,12 +168,13 @@ $todos = $stmt->fetchAll();
                 </li>
             <?php endforeach; ?>
         </ul>
+
         <div class="footer">
-            <p style="text-align: center;font-weight: bold">Updated By Developer - Siva</p>
-            <p style="text-align: center;font-weight: bold">Updated By Developer - Ambu</p>
-            <p style="text-align: center;font-weight: bold">Updated By Developer - vicky</p>
-            <p style="text-align: center;font-weight: bold">Updated By Developer - Satheesh</p>
-            <p style="text-align: center;font-weight: bold">Updated By Developer - Tamil Aruvi</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Siva</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Ambu</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Vicky</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Satheesh</p>
+            <p style="text-align: center; font-weight: bold;">Updated By Developer - Tamil Aruvi</p>
         </div>
     </div>
 </body>
